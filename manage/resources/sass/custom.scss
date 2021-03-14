@@ -1,0 +1,24 @@
+.bg-custom {
+    background-color: #337ab7;
+}
+
+.product-image-holder {
+    width: 100%;
+    height: 446px;
+    border-radius: 10px;
+    border: 1px solid grey;
+    background-image: var(--image);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    position: relative;
+}
+
+.po-table thead{
+    font-size: 0.7rem;
+}
+
+.po-table tbody{
+    font-size: 0.6rem;
+}
