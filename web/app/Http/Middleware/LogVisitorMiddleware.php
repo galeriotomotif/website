@@ -2,8 +2,8 @@
 
 namespace App\Http\Middleware;
 
-use App\LogVisitor;
 use Closure;
+use App\LogVisitor;
 
 class LogVisitorMiddleware
 {
@@ -16,21 +16,21 @@ class LogVisitorMiddleware
      */
     public function handle($request, Closure $next)
     {
-
-        if(LogVisitor::findByIp($request->ip())){
-
-        }
         try {
-            LogVisitor::createData(
-                [
-                    'ip' => $request->ip(),
-                    'host' => gethostbyaddr($request->ip())
-                ]
-            );
+            if ($log = LogVisitor::findByIp($request->ip())) {
+                $log->addCount();
+            } else {
+                LogVisitor::createData(
+                    [
+                        'ip' => $request->ip(),
+                        'host' => gethostbyaddr($request->ip()),
+                        'count' => 1
+                    ]
+                );
+            }
         } catch (\Throwable $th) {
             return $next($request);
         }
-
 
         return $next($request);
     }
