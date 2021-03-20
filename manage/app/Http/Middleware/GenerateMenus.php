@@ -15,7 +15,6 @@ class GenerateMenus
      */
     public function handle($request, Closure $next)
     {
-
         \Menu::make('primaryMenu', function ($menu) {
             $menu->add('Dashboard', [
                 'icon' => ' fa-tachometer-alt',
@@ -27,22 +26,22 @@ class GenerateMenus
                 'url' => 'page/'
             ])->active('page/*');
 
-            $menu->add('News', [
+            $menu->add('Blog', [
                 'icon' => 'fa-database',
-                'url' => 'news'
+                'url' => 'blog'
             ]);
 
-            $menu->news->add('Category', [
+            $menu->blog->add('Category', [
                 'icon' => 'fa-file',
                 'url' => 'category/'
             ])->active('category/*');
 
-            $menu->news->add('Tag', [
+            $menu->blog->add('Tag', [
                 'icon' => 'fa-file',
                 'url' => 'tag/'
             ])->active('tag/*');
 
-            $menu->news->add('Post', [
+            $menu->blog->add('Post', [
                 'icon' => 'fa-file',
                 'url' => 'post/'
             ])->active('post/*');

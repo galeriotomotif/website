@@ -12,12 +12,14 @@
         padding: 0px;
         margin: 0px;
         position: relative;
+        box-sizing: border-box;
     }
 
     section {
         padding: 0;
         margin: 0;
         position: relative;
+        box-sizing: border-box;
     }
 
     a {
@@ -56,7 +58,7 @@
         position: fixed;
         top: 0px;
         width: 100%;
-        background-color: black;
+        background-color: #038db2;
         height: 54px;
         z-index: 100;
     }
@@ -67,18 +69,18 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: auto;
+        width: 150px;
         height: 48px;
     }
 
     header .brand .logo {
-        width: 48px;
+        width: 150px;
         height: 100%;
     }
 
     header .brand .logo img {
         width: 100%;
-        height: 100%;
+        height: auto;
     }
 
     header .brand .title {
@@ -99,15 +101,12 @@
         color: white;
     }
 
-    header .brand .logo img {
-        width: auto;
-        height: 100%;
-    }
-
     /* end of header */
 
     main {
         padding-top: 65px;
+        padding-bottom: 20px;
+        box-sizing: border-box;
     }
 
     .container {
@@ -119,7 +118,7 @@
     nav.menu {
         position: absolute;
         top: 0px;
-        background-color: white;
+        background-color: #fbd266;
         width: 0;
         height: 100%;
         transition: 0.3s;
@@ -138,11 +137,12 @@
     nav.menu .header .close-icon {
         position: absolute;
         top: 50%;
-        right: 10px;
+        right: 15px;
         transform: translate(0, -50%);
     }
 
     nav.menu.active {
+        background-color: #fbd266;
         width: 100%;
         height: 100%;
         transition: 0.3s;
@@ -167,7 +167,7 @@
 
     nav.menu .content .body a {
         text-decoration: none;
-        color: black;
+        color: #282828;
         font-weight: bold;
     }
 
@@ -200,8 +200,8 @@
     }
 
     .close-icon {
-        width: 32px;
-        height: 32px;
+        width: 20px;
+        height: 20px;
     }
 
     .close-icon:hover {
@@ -211,10 +211,10 @@
     .close-icon:before,
     .close-icon:after {
         position: absolute;
-        left: 15px;
+        left: 8px;
         content: ' ';
-        height: 33px;
-        width: 2px;
+        height: 20px;
+        width: 3px;
         background-color: #333;
     }
 
@@ -391,11 +391,58 @@
         padding: 0px 10px;
     }
 
+    footer {
+        position: relative;
+        bottom: 0px;
+        width: 100%;
+        height: auto;
+        background-color: #038db2;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    footer .logo {
+        width: 40%;
+        margin: 0 auto;
+        margin-top: 20px;
+        height: auto;
+    }
+
+    footer .logo img {
+        width: 100%;
+        height: auto;
+    }
+
+    footer .url {
+        width: 100%;
+        height: auto;
+        padding: 0px 20px;
+        margin-top: 10px;
+        box-sizing: border-box;
+    }
+
+    footer .url ul {
+        display: flex;
+        justify-content: center;
+    }
+
+    footer .url ul li {
+        padding: 0px 3px;
+    }
+
+    footer .copyright-text {
+        font-weight: normal;
+        font-size: 0.7em;
+        text-align: center;
+        margin: 10px 0px;
+    }
+
     /* for desktop */
 
     @media only screen and (min-width: 768px) {
         main {
             padding-top: 120px;
+            width: 50%;
         }
 
         nav.menu.active {
@@ -464,6 +511,9 @@
         header .brand {
             padding-left: 5px;
             position: relative;
+            transform: none;
+            top: 0;
+            left: 0;
         }
 
         header .brand .title {
@@ -502,13 +552,18 @@
 
         nav.menu .content .body li:hover a {
             color: #e3090d;
+
         }
 
         nav.menu .content .body a {
             color: #ffffff;
-            font-size: 1em;
+            font-size: 0.85em;
             font-weight: normal;
             text-transform: uppercase;
+        }
+
+        footer .logo {
+            width: 15%;
         }
 
     }

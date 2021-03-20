@@ -11,12 +11,15 @@ class PostController extends Controller
     {
         $post = Post::findBySlug($request->slug);
 
+        $this->meta = $post->meta;
+        $this->meta->image = ($post->image ? url($post->image) : asset('images/logo.png'));
+
         if (!$post) {
             abort(404);
         }
 
-
-        return view('news.show')->with('post',$post);
-
+        return $this->render('blog.show', [
+            'post' => $post
+        ]);
     }
 }

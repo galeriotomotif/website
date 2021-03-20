@@ -17,6 +17,7 @@ class CreateLogVisitorsTable extends Migration
             $table->bigIncrements('id');
             $table->string('ip');
             $table->string('host');
+            $table->string('count')->nullable();
             $table->timestamps();
         });
     }

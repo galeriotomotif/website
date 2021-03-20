@@ -37,7 +37,7 @@ class Post extends Model
 
     public static function findBySlug($slug)
     {
-        $data = self::where('slug', $slug)->first();
+        $data = self::published()->where('slug', $slug)->first();
 
         if (!$data) {
             return false;
@@ -47,13 +47,13 @@ class Post extends Model
 
     public static function getByTagName($name = null, $limit = 10)
     {
-        return self::published()->whereHas('tags', function ($q) use ($name) {
+        return self::published()->published()->whereHas('tags', function ($q) use ($name) {
             $q->where('name', $name);
         })->limit($limit)->get();
     }
 
     public static function getNewPosts($without = [])
     {
-        return self::published()->orderBy('published_at', 'DESC')->whereNotIn('id', $without)->get();
+        return self::published()->published()->orderBy('published_at', 'DESC')->whereNotIn('id', $without)->get();
     }
 }

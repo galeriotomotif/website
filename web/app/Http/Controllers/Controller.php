@@ -16,7 +16,7 @@ class Controller extends BaseController
     public function render($view, $param = [])
     {
         $params = array_merge($param, [
-            'test' => 'test'
+            'meta' => $this->meta
         ]);
 
         return view($view)->with($params);
