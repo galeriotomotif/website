@@ -94,17 +94,7 @@
         position: absolute;
         top: 50%;
         transform: translate(0%, -50%);
-        font-size: 1.5em;
-    }
-
-    header .brand .title h1 {
-        position: absolute;
-        top: 50%;
-        transform: translate(0, -50%);
-        padding: 0px;
-        margin: 0px;
         font-size: 1.1em;
-        color: white;
     }
 
     /* end of header */
