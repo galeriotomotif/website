@@ -14,14 +14,21 @@ class Controller extends BaseController
     public $meta;
     public $breadcrumb;
     public $structureData;
+    public $canonical;
+    public $amp;
 
-    public function render($view, $param = [])
+    public function render($view, $param = [], $render = false)
     {
         $params = array_merge($param, [
             'meta' => $this->meta,
             'structureData' => $this->structureData,
-            'breadcrumb' => $this->breadcrumb
+            'breadcrumb' => $this->breadcrumb,
+            'amp' => $this->amp
         ]);
+
+        if($render){
+            return view($view)->with($params)->render();
+        }
 
         return view($view)->with($params);
     }

@@ -1,10 +1,13 @@
-<style lang="css">
+<style {{ ($amp ? 'amp-custom':'') }}>
     html,
     body {
         padding: 0px;
         margin: 0px;
         width: 100%;
         height: auto;
+    }
+
+    body {
         font-family: sans-serif;
     }
 
@@ -48,8 +51,8 @@
     }
 
     .figure img {
-        width: 100% !important;
-        height: auto !important;
+        width: 100%;
+        height: auto;
     }
 
     /* header */
@@ -61,6 +64,7 @@
         background-color: #038db2;
         height: 54px;
         z-index: 100;
+        box-sizing: border-box;
     }
 
     header .brand {
@@ -84,11 +88,13 @@
     }
 
     header .brand .title {
-        width: 160px;
-        height: 100%;
+        width: auto;
         margin: 0px;
         padding: 0px;
-        position: relative;
+        position: absolute;
+        top: 50%;
+        transform: translate(0%, -50%);
+        font-size: 1.5em;
     }
 
     header .brand .title h1 {
@@ -175,6 +181,51 @@
         display: none;
     }
 
+    .amp-nav {
+        width: 100%;
+        height: 100%;
+    }
+
+    .amp-nav .content .header {
+        width: 100%;
+        height: 40px;
+    }
+
+    .amp-nav .content .header .close-icon {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translate(0, -50%);
+    }
+
+    .amp-nav .content {
+        background-color: #fbd266;
+        width: 100%;
+        height: 100%;
+        transition: 0.3s;
+    }
+
+    .amp-nav .content .body li {
+        padding: 10px 10px;
+    }
+
+    .amp-nav .content .body li:hover {
+        background-color: #e3e1e1;
+    }
+
+    .amp-nav .content .body li.active {
+        background-color: #e3e1e1;
+    }
+
+    .amp-nav .content .body a {
+        text-decoration: none;
+        color: #282828;
+        font-weight: bold;
+    }
+
+
+    /* icon */
+
     .hamburger {
         position: absolute;
         top: 50%;
@@ -187,8 +238,6 @@
         border-top: 0.2em solid #fff;
         border-bottom: 0.2em solid #fff;
     }
-
-    /* icon */
 
     .hamburger:before {
         content: "";
@@ -378,6 +427,13 @@
         margin-top: 10px;
     }
 
+    .amp-body .single-post .feature-image {
+        width: 100%;
+        padding-top: 0px;
+        position: relative;
+        margin-top: 10px;
+    }
+
     .single-post .feature-image img {
         position: absolute;
         top: 0px;
@@ -497,7 +553,7 @@
         }
 
         nav.menu {
-            position: absolute;
+            position: relative;
             width: 100%;
             height: auto;
             top: 54px;
@@ -517,7 +573,6 @@
         }
 
         header .brand .title {
-            width: 300px;
             font-size: 1.6em;
         }
 

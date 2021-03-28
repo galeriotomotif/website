@@ -1,5 +1,5 @@
 <header>
-    <div class="hamburger" onclick="showMenu()"></div>
+    <span class="hamburger" onclick="showMenu()"></span>
     <div class="brand">
         <a href="{{ url('') }}">
             <div class="logo">

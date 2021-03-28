@@ -22,8 +22,7 @@ Route::get('files/{path?}', 'FileController@showFile')
 Route::get('photos/{ratio}/files/{path}', 'FileController@showImageAspecRatio')->where('path', '.*')
     ->name('photos.ratio.path');
 
-
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('blog/{slug}', 'PostController@show')->name('post.show');
-Route::get('{slug}', 'PageController@show')->name('page.show');
 Route::get('amp/blog/{slug}', 'PostController@showAmp')->name('amp.post.show');
+Route::get('{slug}', 'PageController@show')->name('page.show');

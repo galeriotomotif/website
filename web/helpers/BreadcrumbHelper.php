@@ -1,13 +1,16 @@
 <?php
+
 namespace Helpers;
 
 use Illuminate\Support\Facades\Request;
 
 class BreadcrumbHelper
 {
-    public static function make()
+    public static function make($url = null)
     {
-        $url = Request::path();
+        if (!$url) {
+            $url = Request::path();
+        }
         $url = str_replace('amp/', '', $url);
         $breadcrumb = '<script type="application/ld+json">{"@context": "https://schema.org","@type": "BreadcrumbList","itemListElement": [{';
 
