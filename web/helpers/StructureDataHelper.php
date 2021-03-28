@@ -14,7 +14,7 @@ class StructureDataHelper
     ])
     {
         $baseUrl = url('');
-        $data['image'] = str_replace($baseUrl.'/', '', $data['image']);
+        $data['image'] = str_replace($baseUrl . '/', '', $data['image']);
 
         $string = '<script type="application/ld+json">
       {
@@ -38,7 +38,7 @@ class StructureDataHelper
         },
           "publisher": {
           "@type": "Organization",
-          "name": ' . env('SITE_NAME', 'infotransportasi.com') . ',
+          "name": "' . env('SITE_NAME', 'infotransportasi.com') . '",
           "logo": {
             "@type": "ImageObject",
             "url": "' . asset('images/logo.png') . '"
