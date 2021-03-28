@@ -10,6 +10,10 @@
     body {
         font-family: sans-serif;
     }
+    img{
+        width: 100%;
+        height: auto;
+    }
 
     div {
         padding: 0px;
