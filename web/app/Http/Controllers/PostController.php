@@ -58,7 +58,7 @@ class PostController extends Controller
         $post->meta->url = str_replace('amp/', '', $post->meta->url);
         $this->meta = $post->meta;
 
-        $this->breadcrumb = BreadcrumbHelper::make($this->meta->url);
+        $this->breadcrumb = BreadcrumbHelper::make();
         $this->structureData = StructureDataHelper::make(
             [
                 'url' => $this->meta->url,
@@ -69,6 +69,8 @@ class PostController extends Controller
                 'updated_at' => $this->meta->updated_at
             ]
         );
+
+        $this->breadcrumb;
 
         $this->amp = true;
 

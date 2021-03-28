@@ -11,6 +11,7 @@ class BreadcrumbHelper
         if (!$url) {
             $url = Request::path();
         }
+
         $url = str_replace('amp/', '', $url);
         $breadcrumb = '<script type="application/ld+json">{"@context": "https://schema.org","@type": "BreadcrumbList","itemListElement": [{';
 
