@@ -11,15 +11,22 @@ class PostController extends Controller
     {
         $post = Post::findBySlug($request->slug);
 
-        $this->meta = $post->meta;
-        $this->meta->image = ($post->image ? url($post->image) : asset('images/logo.png'));
-
         if (!$post) {
             abort(404);
         }
+
+        $post->meta->created_at = null;
+        $post->meta->updated_at = null;
+        $post->meta->image = ($post->image ? url($post->image) : asset('images/logo.png'));
+        $post->meta->url = str_replace('www.', '', url()->full());
+
+        $this->meta = $post->meta;
 
         return $this->render('blog.show', [
             'post' => $post
         ]);
     }
+
+    public function showAmp(Request $request)
+    { }
 }

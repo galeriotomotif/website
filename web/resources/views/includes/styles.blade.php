@@ -455,7 +455,7 @@
         }
 
         main.single-post {
-            width: 60%;
+            width: 50%;
             height: auto;
             margin-left: 150px;
             margin-top: 15px;
