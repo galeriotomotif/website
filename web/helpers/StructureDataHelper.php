@@ -14,7 +14,7 @@ class StructureDataHelper
     ])
     {
         $baseUrl = url('');
-        $data['image'] = str_replace($baseUrl, '', $data['image']);
+        $data['image'] = str_replace($baseUrl.'/', '', $data['image']);
 
         $string = '<script type="application/ld+json">
       {
@@ -26,7 +26,9 @@ class StructureDataHelper
         },
         "headline": "' . $data['title'] . '",
         "image": [
-          "' . url('photos/16x9/' . $data['image']) . '"
+            "' . url('photos/1x1/' . $data['image']) . '",
+            "' . url('photos/4x3/' . $data['image']) . '",
+            "' . url('photos/16x9/' . $data['image']) . '"
           ],
         "datePublished": "' . $data['created_at'] . '",
         "dateModified": "' . $data['updated_at'] . '",

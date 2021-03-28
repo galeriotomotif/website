@@ -1,0 +1,68 @@
+<?php
+namespace Helpers;
+
+class BreadcrumbHelper
+{
+    public static function make()
+    {
+        $url = request()->url();
+        $url = str_replace('amp/', '', $url);
+
+        $breadcrumb = '<script type="application/ld+json">{"@context": "https://schema.org","@type": "BreadcrumbList","itemListElement": [{';
+
+        $breadcrumb .= '"@type": "ListItem",';
+        $breadcrumb .= '"position": 1,';
+        $breadcrumb .= '"name": "Home",';
+        $breadcrumb .= '"item": "';
+        $breadcrumb .= url('');
+        $breadcrumb .= '"}';
+
+        if (strlen($url) != 1) {
+
+            $breadcrumb .= ',';
+        }
+
+        $numberOfContent = 2;
+
+        if (strlen($url) != 1) {
+
+            $url = explode("/", $url);
+
+            $last_key_url = array_key_last($url);
+
+            for ($i = 0; $i < count($url); $i++) {
+
+                if ($url[$i] != "page") {
+
+                    $breadcrumb .= '{';
+                    $breadcrumb .= '"@type": "ListItem",';
+                    $breadcrumb .= '"position": ' . $numberOfContent . ',';
+                    $numberOfContent++;
+                    $breadcrumb .= '"name": "' . $url[$i] . '",';
+                    $breadcrumb .= '"item": "';
+                    $breadcrumb .= url('');
+
+                    for ($y = 0; $y <= $i; $y++) {
+
+                        $breadcrumb .= "/" . $url[$y];
+                    }
+
+                    $breadcrumb .= '"}';
+
+                    // make tag <a>
+                    if ($i != $last_key_url) {
+                        $breadcrumb .= ',';
+                    }
+                    // end make tag <a>
+                }
+            }
+        }
+
+        $breadcrumb .= ']';
+        $breadcrumb .= "}";
+
+        $breadcrumb .= "</script>";
+
+        return $breadcrumb;
+    }
+}

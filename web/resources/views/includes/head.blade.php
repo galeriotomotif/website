@@ -30,3 +30,11 @@
 <meta name="twitter:title" content="{{ $meta->title }}">
 <meta name="twitter:description" content="" {{ $meta->description }}">
 <meta name="twitter:image" content="{{ $meta->image }}">
+
+@if ($breadcrumb)
+{!! $breadcrumb !!}
+@endif
+
+@if ($structureData)
+{!! $structureData !!}
+@endif

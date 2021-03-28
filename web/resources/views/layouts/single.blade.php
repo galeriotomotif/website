@@ -2,23 +2,10 @@
 <html lang="en">
 
 <head>
-
     @include('includes.head')
     @include('includes.styles')
 
     @stack('head')
-
-    {!! \Helpers\StructureDataHelper::make(
-    [
-    'url' => $meta->url,
-    'title' => $meta->title,
-    'description' => $meta->description,
-    'image' => $meta->image,
-    'created_at' => $meta->created_at,
-    'updated_at' => $meta->updated_at
-    ]
-    ) !!}
-
     @stack('styles')
 </head>
 
