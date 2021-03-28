@@ -6,6 +6,7 @@ use App\Models\Post\Category;
 use App\Models\Post\Tag;
 use App\Traits\Metaable;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Post extends Model
 {
@@ -35,6 +36,11 @@ class Post extends Model
         return $this->belongsToMany(Tag::class, 'post_post_tag', 'post_id', 'tag_id');
     }
 
+    public static function list()
+    {
+        return self::published()->get();
+    }
+
     public static function findBySlug($slug)
     {
         $data = self::published()->where('slug', $slug)->first();
@@ -55,5 +61,16 @@ class Post extends Model
     public static function getNewPosts($without = [])
     {
         return self::published()->published()->orderBy('published_at', 'DESC')->whereNotIn('id', $without)->get();
+    }
+
+    public static function lastUpdateDate()
+    {
+        $data = self::published()->orderBy('updated_at', 'DESC')->first();
+
+        if ($data) {
+            return $data->updated_at->format('Y-m-d');
+        }
+
+        return Carbon::now()->format('Y-m-d');
     }
 }

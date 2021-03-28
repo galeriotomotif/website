@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('sitemap/{path?}', 'SiteMapController@show')
-    ->where('path', '.*')
-    ->name('site-map.show');
+Route::get('sitemap/sitemap.xml', 'SiteMapController@index')->name('site-map.index');
+Route::get('sitemap/sitemap-page.xml', 'SiteMapController@showPage')->name('site-map.page');
+Route::get('sitemap/sitemap-post.xml', 'SiteMapController@showPost')->name('site-map.post');
 
 Route::get('files/{path?}', 'FileController@showFile')
     ->where('path', '.*')

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\Metaable;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Page extends Model
@@ -13,6 +14,11 @@ class Page extends Model
     public function scopePublished($q)
     {
         return $q->whereNotNull('published_at');
+    }
+
+    public static function list()
+    {
+        return self::published()->get();
     }
 
     public static function getForStaticPage($name)
@@ -28,5 +34,16 @@ class Page extends Model
             return false;
         }
         return $data;
+    }
+
+    public static function lastUpdateDate()
+    {
+        $data = self::published()->orderBy('updated_at', 'DESC')->first();
+
+        if ($data) {
+            return $data->updated_at->format('Y-m-d');
+        }
+
+        return Carbon::now()->format('Y-m-d');
     }
 }
