@@ -11,6 +11,10 @@
 
 <link rel="canonical" href="{{ $meta->url }}" />
 
+@if ($amp_available)
+<link rel="amphtml" href="{{ $amp_url }}">
+@endif
+
 <meta name="description" content="{{ $meta->description }}">
 
 <!-- Google / Search Engine Tags -->

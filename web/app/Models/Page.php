@@ -11,6 +11,10 @@ class Page extends Model
     use Metaable;
     protected $table = 'pages';
 
+    protected $dates = [
+        'published_at'
+    ];
+
     public function scopePublished($q)
     {
         return $q->whereNotNull('published_at');

@@ -20,8 +20,6 @@ class PostController extends Controller
             abort(404);
         }
 
-        $post->meta->created_at = null;
-        $post->meta->updated_at = null;
         $post->meta->image = ($post->image ? url($post->image) : asset('images/logo.png'));
         $post->meta->url = str_replace('www.', '', url()->full());
         $this->meta = $post->meta;
@@ -33,10 +31,13 @@ class PostController extends Controller
                 'title' => $this->meta->title,
                 'description' => $this->meta->description,
                 'image' => $this->meta->image,
-                'created_at' => $this->meta->created_at,
-                'updated_at' => $this->meta->updated_at
+                'created_at' => $post->published_at->format('Y-m-d'),
+                'updated_at' => $post->updated_at->format('Y-m-d')
             ]
         );
+
+        $this->amp_available = true;
+        $this->amp_url = AmpHelper::makeAmpUrl($this->meta->url);
 
         return $this->render('blog.show', [
             'post' => $post

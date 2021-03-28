@@ -4,9 +4,14 @@ namespace Helpers;
 
 class AmpHelper
 {
+    public static function makeAmpUrl($url)
+    {
+        $baseUrl = url('');
+
+        return str_replace($baseUrl, $baseUrl . '/amp', $url);
+    }
     public static function optimize($content)
     {
-
         // $content=AmpHelper::generateAdsInArticle($content);
         $content = AmpHelper::imageToAmpImage($content);
         return $content;

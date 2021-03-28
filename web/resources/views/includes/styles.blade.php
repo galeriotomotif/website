@@ -116,7 +116,7 @@
     }
 
     nav.menu {
-        position: absolute;
+        position: fixed;
         top: 0px;
         background-color: #fbd266;
         width: 0;

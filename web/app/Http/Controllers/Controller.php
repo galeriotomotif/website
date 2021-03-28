@@ -16,6 +16,8 @@ class Controller extends BaseController
     public $structureData;
     public $canonical;
     public $amp;
+    public $amp_available = false;
+    public $amp_url;
 
     public function render($view, $param = [], $render = false)
     {
@@ -23,10 +25,12 @@ class Controller extends BaseController
             'meta' => $this->meta,
             'structureData' => $this->structureData,
             'breadcrumb' => $this->breadcrumb,
-            'amp' => $this->amp
+            'amp' => $this->amp,
+            'amp_available' => $this->amp_available,
+            'amp_url' => $this->amp_url
         ]);
 
-        if($render){
+        if ($render) {
             return view($view)->with($params)->render();
         }
 
