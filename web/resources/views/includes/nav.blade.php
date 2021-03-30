@@ -5,12 +5,12 @@
         </div>
         <div class="body">
             <ul>
-                <li>
+                {{-- <li>
                     <a href="">Category 1</a>
                 </li>
                 <li>
                     <a href="">Category 2</a>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div>

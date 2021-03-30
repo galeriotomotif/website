@@ -107,6 +107,7 @@
         padding-top: 65px;
         padding-bottom: 20px;
         box-sizing: border-box;
+        min-height: 500px;
     }
 
     .container {
@@ -399,7 +400,6 @@
 
     .single-post {
         width: 100%;
-        height: auto;
         margin: 0 auto;
     }
 
@@ -451,6 +451,10 @@
         box-sizing: border-box;
     }
 
+    footer a{
+        color: black;
+    }
+
     footer .logo {
         width: 40%;
         margin: 0 auto;
@@ -491,7 +495,7 @@
 
     @media only screen and (min-width: 768px) {
         main {
-            padding-top: 120px;
+            min-height: 650px;
             width: 50%;
         }
 

@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use Helpers\PostHelper;
 use Illuminate\Http\Request;
+use App\Models\Page;
+use Helpers\BreadcrumbHelper;
+use Helpers\StructureDataHelper;
 
 class PageController extends Controller
 {
     public function show(Request $request)
     {
         $page = Page::findBySlug($request->slug);
+
         $page->content = PostHelper::optimize($page->content);
 
         if (!$page) {
@@ -34,7 +38,7 @@ class PageController extends Controller
 
         $this->amp_available = false;
 
-        return $this->render('blog.show', [
+        return $this->render('page.show', [
             'page' => $page
         ]);
     }
