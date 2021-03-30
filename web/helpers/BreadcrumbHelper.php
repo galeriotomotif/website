@@ -15,19 +15,7 @@ class BreadcrumbHelper
         $url = str_replace('amp/', '', $url);
         $breadcrumb = '<script type="application/ld+json">{"@context": "https://schema.org","@type": "BreadcrumbList","itemListElement": [{';
 
-        $breadcrumb .= '"@type": "ListItem",';
-        $breadcrumb .= '"position": 1,';
-        $breadcrumb .= '"name": "Home",';
-        $breadcrumb .= '"item": "';
-        $breadcrumb .= url('');
-        $breadcrumb .= '"}';
-
-        if (strlen($url) != 1) {
-
-            $breadcrumb .= ',';
-        }
-
-        $numberOfContent = 2;
+        $numberOfContent = 1;
 
         if (strlen($url) != 1) {
 
