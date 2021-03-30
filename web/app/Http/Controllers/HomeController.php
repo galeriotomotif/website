@@ -18,7 +18,7 @@ class HomeController extends Controller
         $page->meta->url = str_replace('www.', '', url()->full());
         $this->meta = $page->meta;
 
-        $this->breadcrumb = BreadcrumbHelper::make();
+        // $this->breadcrumb = BreadcrumbHelper::make();
         $this->structureData = StructureDataHelper::make(
             [
                 'url' => $this->meta->url,
