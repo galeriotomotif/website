@@ -31,7 +31,7 @@ class BreadcrumbHelper
                     $breadcrumb .= '"@type": "ListItem",';
                     $breadcrumb .= '"position": ' . $numberOfContent . ',';
                     $numberOfContent++;
-                    $breadcrumb .= '"name": "' . $url[$i] . '",';
+                    $breadcrumb .= '"name": "' . str_replace('-', ' ', $url[$i]) . '",';
                     $breadcrumb .= '"item": "';
                     $breadcrumb .= url('');
 
